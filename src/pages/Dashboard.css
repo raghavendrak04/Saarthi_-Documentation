@@ -1,0 +1,342 @@
+/* ================================================
+   DASHBOARD STYLES
+   ================================================ */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Welcome */
+.dash-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--primary-50), var(--accent-50));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--primary-100);
+}
+
+.dash-welcome-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dash-welcome-sub {
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    margin-top: 0.25rem;
+}
+
+.dash-streak-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+}
+
+.dash-streak-value {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--gray-900);
+}
+
+.dash-streak-label {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+/* Stats */
+.dash-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.dash-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    transition: all 0.2s;
+}
+
+.dash-stat-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.dash-stat-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dash-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-stat-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    line-height: 1;
+}
+
+.dash-stat-label {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+    margin-top: 0.125rem;
+}
+
+.dash-stat-change {
+    font-size: 0.6875rem;
+    color: var(--success);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Grid */
+.dash-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+}
+
+.dash-section {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    padding: 1.5rem;
+}
+
+.dash-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.dash-section-header h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Continue Learning */
+.dash-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.dash-course-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-100);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dash-course-card:hover {
+    background: var(--gray-50);
+    border-color: var(--primary-200);
+}
+
+.dash-course-thumb {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius);
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.dash-course-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dash-course-info h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dash-course-code {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+.dash-course-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+    color: var(--gray-500);
+    margin-top: 0.25rem;
+}
+
+/* Deadlines */
+.dash-deadlines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dash-deadline-item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-100);
+    transition: all 0.2s;
+}
+
+.dash-deadline-item:hover {
+    background: var(--gray-50);
+}
+
+.dash-deadline-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dash-deadline-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dash-deadline-info h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dash-deadline-info span {
+    font-size: 0.6875rem;
+    color: var(--gray-500);
+}
+
+.dash-deadline-due {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.dash-deadline-date {
+    font-size: 0.6875rem;
+    color: var(--gray-500);
+}
+
+/* Recommended */
+.dash-recommended {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.dash-rec-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: var(--card-bg);
+}
+
+.dash-rec-card:hover {
+    border-color: var(--primary-200);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.dash-rec-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    background: var(--primary-50);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-rec-card h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.dash-rec-meta {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .dash-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-recommended {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dash-welcome {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .dash-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dash-recommended {
+        grid-template-columns: 1fr;
+    }
+}
