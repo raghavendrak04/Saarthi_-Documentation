@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# Saarthi.ai - Next Generation AI Learning Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Saarthi.ai project repository! This repository contains the finalized production frontend codebase for the project.
 
-Currently, two official plugins are available:
+As requested to prepare for the subsequent active backend collaboration, all frontend source codes, configurations, and static assets have been safely modularized into the `frontend/` directory to maintain a clean project root.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Saarthi.ai** is an intelligent, AI-centric educational platform structured somewhat similar to Google Classroom but deeply integrated with **RAG LLMs** and **Microservices**. The main features include a contextual chat tutor, digitized video lectures with annotations, embedded coding laboratories, and a course management dashboard with student-teacher communication streams.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Repository Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── frontend/             # ⬅️ All React.js frontend source code lives here!
+│   ├── src/
+│   │   ├── components/   # Application-wide reusable UI components (Logo, Chatbot)
+│   │   ├── pages/        # Fully designed page views (Dashboard, Login, Landing, CourseDetail)
+│   │   ├── stores/       # Zustand state management handling user and application states
+│   │   ├── App.tsx       # Main router and layout hierarchy
+│   │   └── index.css     # Global styles and CSS variable themes
+│   ├── public/           # Static icons/assets
+│   ├── package.json      # Frontend dependencies
+│   └── vite.config.ts    # Bundler and deployment configurations
+└── README.md             # This project and backend-integration guide
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Backend Contributor Guide
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+If you are a backend engineer taking over for data and microservices integration, here is everything you need to know about the current state of the frontend and where you need to plug in.
+
+### 1. State Management (Auth)
+The application currently uses mocked data and state stored locally via **Zustand** (located in `frontend/src/stores/auth.store.ts`). 
+* **Your Task**: Implement a JWT-based authentication microservice. You'll need to update the `auth.store.ts` file to execute standard POST requests to your `/login` and `/signup` endpoints, and securely save the JWT in Axios headers.
+
+### 2. Frontend-Backend Communication Patterns
+The frontend design anticipates a microservice backend utilizing three predominant communication protocols:
+- **REST APIs (Primary):** Fetching and updating Course Details, Stream Announcements, Student Quizzes, Profile data, and Assignments. 
+- **WebSockets (Real-time AI Chat):** The persistent floating AI Chatbot component (`frontend/src/components/AIChatbot.tsx`) expects to connect to a streaming Python/FastAPI backend endpoint to type out streaming responses derived from the custom course RAG vectors.
+- **Server-Sent Events (SSE):** The Code Editor laboratory is mapped out to stream execution inputs/outputs live from an isolated container execution microservice using SSE.
+
+### 3. Key Database Entities Expected
+To populate the UI dynamically, your database schema (e.g., MongoDB) should map standard JSON endpoints for the following:
+- **Users**: Roles for `admin` (Teacher) vs `student`.
+- **Courses**: Contains topics, students enrolled, and a customized course color/icon.
+- **Stream/Classwork Items**: Assignments, Materials, Videos, and general announcements tightly associated with a Course ID.
+
+---
+
+## 🚀 Running the Frontend Locally
+
+To run the React application to verify your backend changes locally:
+
+```bash
+# 1. Navigate into the frontend directory
+cd frontend
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the Vite development server
+npm run dev
 ```
+
+The app will typically run at `http://localhost:5173`.
+
+---
+
+## 🌐 Deployment Note
+
+The frontend contains an automatic build script mapped to the `package.json`. It is currently configured to deploy properly via GitHub Pages.
+
+**Good luck with the backend integration! 🚀**
