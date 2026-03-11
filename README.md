@@ -8,9 +8,23 @@ As requested to prepare for the subsequent active backend collaboration, all fro
 
 ---
 
-## 🎯 Project Overview
+## 🎯 Project Summary
 
 **Saarthi.ai** is an intelligent, AI-centric educational platform structured somewhat similar to Google Classroom but deeply integrated with **RAG LLMs** and **Microservices**. The main features include a contextual chat tutor, digitized video lectures with annotations, embedded coding laboratories, and a course management dashboard with student-teacher communication streams.
+
+This system is purpose-built to help students learn complex technical concepts faster and effectively prepare for exams, tests, and interviews through specialized multi-modal tools.
+
+---
+
+## 📦 Project Versions Explained
+
+This repository currently contains the two fundamental stages of our project implementation:
+
+### Version 0: Deep Planning & Architecture
+Located in the `planning version 0/` directory, this version represents our comprehensive foundational blueprint. It contains four highly-detailed analysis reports that break down functional requirements, technical specifications, database schemas, and microservice/monolithic architectural design patterns into deep detail. It serves as the master guide for development operations.
+
+### Version 1: Production Frontend & Demo
+Located in the `frontend/` directory, this version is the live, functioning application interface that was built exactly according to the Version 0 plans. It is built using React.js and Vite and contains all fully designed UI pages, state management, routing, and glassmorphic styling conventions. It acts as our fully interactive, user-facing proof-of-concept ready for backend integration!
 
 ---
 
