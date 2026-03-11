@@ -211,7 +211,7 @@ export default function CourseDetailPage() {
                     <ArrowLeft size={20} />
                 </button>
                 <div className="cd-cr-tabs">
-                    {tabs.map((tab) => (
+                    {tabs.filter(t => isAdmin || t.id !== 'people').map((tab) => (
                         <button key={tab.id} className={`cd-cr-tab ${activeTab === tab.id ? 'active' : ''}`} onClick={() => setActiveTab(tab.id)}>
                             {tab.label}
                         </button>
@@ -371,7 +371,7 @@ export default function CourseDetailPage() {
             )}
 
             {/* ── People Tab ── */}
-            {activeTab === 'people' && (
+            {activeTab === 'people' && isAdmin && (
                 <div className="cd-people-container">
                     <div className="cd-people-section">
                         <h2>Teachers</h2>

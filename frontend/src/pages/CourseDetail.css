@@ -561,16 +561,16 @@
 [data-theme='dark'] .cd-compose-card,
 [data-theme='dark'] .cd-upcoming-box,
 [data-theme='dark'] .cd-feed-item {
-    background: var(--gray-900);
+    background: var(--card-bg);
     border-color: var(--border);
 }
 
 [data-theme='dark'] .cd-compose-trigger:hover {
-    background: var(--gray-800);
+    background: var(--gray-50);
 }
 
 [data-theme='dark'] .cd-compose-editor {
-    background: var(--gray-800);
+    background: var(--gray-50);
 }
 
 [data-theme='dark'] .cd-editor-top textarea {
@@ -591,7 +591,7 @@
 }
 
 [data-theme='dark'] .cd-cw-item:hover {
-    background: var(--gray-800);
+    background: var(--gray-50);
 }
 
 [data-theme='dark'] .cd-people-section h2 {
@@ -599,7 +599,7 @@
 }
 
 [data-theme='dark'] .cd-modal {
-    background: var(--gray-900);
+    background: var(--card-bg);
 }
 
 [data-theme='dark'] .cd-modal-field label {

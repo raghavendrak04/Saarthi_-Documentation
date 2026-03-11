@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
     User, Bell, Palette, Shield, Camera, Save, Moon, Sun, Monitor,
-    LogOut, Trash2, Eye, EyeOff, Mail, Lock, Globe
+    LogOut, Trash2, Eye, EyeOff, Mail, Lock, Globe, Phone, Hash, Briefcase
 } from 'lucide-react';
 import { useAuthStore } from '../../stores/auth.store';
 import { useSettingsStore } from '../../stores/settings.store';
@@ -26,6 +26,9 @@ export default function SettingsPage() {
     const [profileEmail] = useState(user?.email || '');
     const [profileBio, setProfileBio] = useState('Computer Science Student | AI Enthusiast');
     const [profileInstitute, setProfileInstitute] = useState('NIT Raipur');
+    const [profileDepartment, setProfileDepartment] = useState('cse');
+    const [profileContactNo, setProfileContactNo] = useState('');
+    const [profileAdmissionNo, setProfileAdmissionNo] = useState('');
 
     // Notification toggles
     const [notifCourseUpdates, setNotifCourseUpdates] = useState(true);
@@ -111,6 +114,40 @@ export default function SettingsPage() {
                                         <input className="input" value={profileInstitute} onChange={(e) => setProfileInstitute(e.target.value)} />
                                     </div>
                                 </div>
+                                {user?.role !== 'admin' && (
+                                    <>
+                                        <div className="settings-field">
+                                            <label>Working Department</label>
+                                            <div className="settings-input-wrap">
+                                                <Briefcase size={16} />
+                                                <select
+                                                    className="input"
+                                                    style={{ border: 'none', background: 'transparent', outline: 'none', width: '100%', paddingLeft: '8px' }}
+                                                    value={profileDepartment}
+                                                    onChange={(e) => setProfileDepartment(e.target.value)}
+                                                >
+                                                    <option value="cse">CSE</option>
+                                                    <option value="ece">ECE</option>
+                                                    <option value="ai_ml">AI & ML</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="settings-field">
+                                            <label>Contact Number</label>
+                                            <div className="settings-input-wrap">
+                                                <Phone size={16} />
+                                                <input className="input" placeholder="+91 0000000000" value={profileContactNo} onChange={(e) => setProfileContactNo(e.target.value)} />
+                                            </div>
+                                        </div>
+                                        <div className="settings-field">
+                                            <label>Admission Number</label>
+                                            <div className="settings-input-wrap">
+                                                <Hash size={16} />
+                                                <input className="input" placeholder="e.g. CS2026001" value={profileAdmissionNo} onChange={(e) => setProfileAdmissionNo(e.target.value)} />
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
                                 <div className="settings-field">
                                     <label>Bio</label>
                                     <textarea className="input settings-textarea" value={profileBio} onChange={(e) => setProfileBio(e.target.value)} rows={3} />

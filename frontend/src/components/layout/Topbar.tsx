@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Search, Bell, ChevronDown, Menu, LogOut, User, Settings } from 'lucide-react';
+import { Search, Bell, ChevronDown, Menu, LogOut, User, Settings, Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/auth.store';
+import { useSettingsStore } from '../../stores/settings.store';
 import { getInitials } from '../../lib/utils';
 import './Topbar.css';
 
@@ -9,11 +10,17 @@ export default function Topbar() {
     const [showProfile, setShowProfile] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const { user, logout } = useAuthStore();
+    const { theme, setTheme } = useSettingsStore();
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logout();
         navigate('/login');
+    };
+
+    const toggleTheme = () => {
+        const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        setTheme(isDark ? 'light' : 'dark');
     };
 
     return (
@@ -39,6 +46,14 @@ export default function Topbar() {
 
             {/* Right Actions */}
             <div className="topbar-actions">
+                {/* Theme Toggle */}
+                <button className="topbar-icon-btn" aria-label="Toggle theme" onClick={toggleTheme} title="Toggle Dark/Light Mode">
+                    {theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? (
+                        <Sun size={20} />
+                    ) : (
+                        <Moon size={20} />
+                    )}
+                </button>
                 {/* Notifications */}
                 <button className="topbar-icon-btn" aria-label="Notifications">
                     <Bell size={20} />

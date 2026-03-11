@@ -2,8 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import {
     Sparkles, Code2, Award, BookOpen, Brain, BarChart3,
     Play, ArrowRight, Star, CheckCircle2, ChevronRight,
-    Zap, Users, GraduationCap, Shield
+    Zap, Users, GraduationCap, Shield, Sun, Moon
 } from 'lucide-react';
+import { useSettingsStore } from '../stores/settings.store';
 import './Landing.css';
 import { LogoIcon } from '../components/LogoIcon';
 
@@ -65,6 +66,12 @@ const testimonials = [
 
 export default function LandingPage() {
     const navigate = useNavigate();
+    const { theme, setTheme } = useSettingsStore();
+
+    const toggleTheme = () => {
+        const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        setTheme(isDark ? 'light' : 'dark');
+    };
 
     return (
         <div className="landing">
@@ -82,7 +89,20 @@ export default function LandingPage() {
                         <a href="#subjects">Subjects</a>
                         <a href="#testimonials">Reviews</a>
                     </div>
-                    <div className="landing-nav-actions">
+                    <div className="landing-nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <button
+                            className="btn btn-ghost"
+                            aria-label="Toggle theme"
+                            onClick={toggleTheme}
+                            title="Toggle Dark/Light Mode"
+                            style={{ padding: '0.5rem', borderRadius: '50%' }}
+                        >
+                            {theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? (
+                                <Sun size={20} />
+                            ) : (
+                                <Moon size={20} />
+                            )}
+                        </button>
                         <button className="btn btn-ghost" onClick={() => navigate('/login')}>Login</button>
                         <button className="btn btn-primary" onClick={() => navigate('/signup')}>
                             Get Started <ArrowRight size={16} />
