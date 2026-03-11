@@ -1,8 +1,10 @@
 # Saarthi.ai - Next Generation AI Learning Assistant
 
+🚀 **Live Deployment Demo**: [https://raghavendrak04.github.io/Saarthi_-Documentation/](https://raghavendrak04.github.io/Saarthi_-Documentation/)
+
 Welcome to the Saarthi.ai project repository! This repository contains the finalized production frontend codebase for the project.
 
-As requested to prepare for the subsequent active backend collaboration, all frontend source codes, configurations, and static assets have been safely modularized into the `frontend/` directory to maintain a clean project root.
+As requested to prepare for the subsequent active backend collaboration, all frontend source codes, configurations, and static assets have been safely modularized into the `frontend/` directory to maintain a clean project root. Also, all deep planning reports are available in the `planning version 0/` directory.
 
 ---
 
@@ -15,6 +17,7 @@ As requested to prepare for the subsequent active backend collaboration, all fro
 ## 📁 Repository Structure
 
 ```
+├── planning version 0/   # ⬅️ All 4 major deep analysis planning and architecture design docs!
 ├── frontend/             # ⬅️ All React.js frontend source code lives here!
 │   ├── src/
 │   │   ├── components/   # Application-wide reusable UI components (Logo, Chatbot)
