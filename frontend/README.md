@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# Saarthi.ai Dashboard - Documentation & Frontend App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 **Live Deployment Demo**: [https://raghavendrak04.github.io/Saarthi_-Documentation/](https://raghavendrak04.github.io/Saarthi_-Documentation/)
 
-Currently, two official plugins are available:
+Saarthi.ai is an Agentic AI-based Teaching Assistant designed to revolutionize technical education in domains such as Machine Intelligence, Signal Processing, and Computer Science. Unlike generic AI assistants, Saarthi.ai is purpose-built with domain-specific knowledge to provide superior learning experiences.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Planning Reports (Version 0)
 
-## React Compiler
+You can find the deep-analyzed documentation and architecture design components inside the `planning version 0` folder in this repository:
+1. `STAGE1_PLANNING_AND_REQUIREMENTS.md` - Overall goals, resources, timelines, and quantitative metrics of the project.
+2. `STAGE2_REQUIREMENTS_SPECIFICATION.md` - Complete and deep detailed functional and technical requirements specifications. 
+3. `STAGE3A_HIGH_LEVEL_DESIGN.md` - Monolithic Express architecture mapping and REST/WebSocket API patterns.
+4. `STAGE3B_LOW_LEVEL_DESIGN.md` - Database document schema design, specific component patterns, and frontend/backend integration specs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Frontend Demo & App (Version 1)
 
-## Expanding the ESLint configuration
+This repository also contains the complete source code for our **Saarthi frontend demo**. It is built with:
+- React 18 & Vite
+- TypeScript
+- Vanilla CSS + Custom Design System
+- Zustand (Global State Management)
+- React Router DOM v7
+- Lucide React (Icons)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Key Features Implemented:
+- Modern glassmorphic user interface
+- End-to-end Dashboard featuring Course Catalogs, Statistics, and "Up Next" modules.
+- Course Details page with dynamic Student/Instructor filtering (Classwork, Stream, and hidden People tabs).
+- Full Light / Dark / Auto system theme integration powered by local storage and custom CSS variables.
+- AI Chatbot pop-up capable of persistent UI presence across the entire site.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### To Run Locally:
+```bash
+# Clone the repo
+git clone https://github.com/raghavendrak04/Saarthi_-Documentation.git
+cd Saarthi_-Documentation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Install dependencies
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
 ```
