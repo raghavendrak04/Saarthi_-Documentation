@@ -16,6 +16,42 @@ This system is purpose-built to help students learn complex technical concepts f
 
 ---
 
+## 💼 Projects
+
+### Saarthi.ai (Flagship Project)
+
+- **Project Name:** Saarthi.ai  
+- **Repository:** `raghavendrak04/Saarthi_-Documentation`  
+- **Live Demo (Redirect Link):** [https://raghavendrak04.github.io/Saarthi_-Documentation/](https://raghavendrak04.github.io/Saarthi_-Documentation/)
+
+#### Built With
+- React
+- Vite
+- TypeScript
+- Zustand
+- CSS
+
+#### Problem It Solves
+Saarthi.ai addresses the need for a smarter digital learning environment by combining classroom-style workflows with AI-assisted learning support.
+
+#### Key Features
+- AI chat tutor experience for contextual learning support
+- Course dashboard for organized class and learner workflows
+- Classwork and stream-style interface for academic updates and materials
+- Coding lab concept for practical, hands-on learning workflows
+
+#### Approach
+- Started with a planning-first process documented in **Version 0** architecture and requirement reports
+- Executed implementation in **Version 1** as a production-ready frontend
+- Deployed via GitHub Pages for public access and demonstration
+
+#### Outcome
+- Delivered a working frontend prototype aligned to architectural plans
+- Structured the project to be backend-ready for integration and scaling
+- Published a live, shareable demo through the redirect link above
+
+---
+
 ## 📦 Project Versions Explained
 
 This repository currently contains the two fundamental stages of our project implementation:
